@@ -288,7 +288,7 @@ export default function Footer() {
                           href="#"
                           className="footer-link text-secondary before:bg-secondary"
                         >
-                          Демо хүсэх
+                          Демо үзэх
                         </a>
                       </li>
                     </ul>

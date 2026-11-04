@@ -348,7 +348,7 @@ export default function Header() {
                 className="btn-md-v2 btn-v2-white group-hover/btn-v2:btn-primary-v2 !border-0 mx-auto inline-flex h-12 w-full cursor-pointer items-center justify-center gap-1.5 rounded-full text-center font-medium text-nowrap lowercase transition-all duration-500 ease-in-out md:mx-0 md:h-auto md:w-auto"
               >
                 <span className="inline-block transition-transform duration-300 ease-in-out first-letter:uppercase">
-                  Демо хүсэх
+                  Демо үзэх
                 </span>
                 <div className="relative size-6 overflow-hidden">
                   <span className="btn-v2-icon absolute inset-0 size-6 -translate-x-6 transition-all duration-300 ease-in-out group-hover/btn-v2:translate-x-1">
