@@ -1,0 +1,75 @@
+name: mongolnet_b2b_prod
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Сонгосон хувилбарын tag (хэрэв орхигдсон бол "latest" гэж анхдагчаар тохируулагдана)'
+        required: false
+
+env:
+  IMAGE_NAME: mongolnet_b2b_prod
+  REGISTRY: repo.nextsocial.mn
+  BUILD_BRANCH: main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run info
+        run: |
+          echo "Triggered by: ${{ github.actor }}"
+          echo "Selected ref: $GITHUB_REF"
+          echo "Энэ workflow нь үргэлж $BUILD_BRANCH branch-ийг барина (refs/heads/$BUILD_BRANCH)."
+
+      - name: Checkout ${{ env.BUILD_BRANCH }} branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BUILD_BRANCH }}
+          fetch-depth: 0
+
+      - name: Prepare variables
+        id: vars
+        env:
+          INPUT_VERSION: ${{ github.event.inputs.version }}
+        run: |
+          set -e
+          IMAGE_ID="${REGISTRY}/${IMAGE_NAME}"
+          IMAGE_ID=$(echo "$IMAGE_ID" | tr '[:upper:]' '[:lower:]')
+
+          if [ -n "$INPUT_VERSION" ]; then
+            VERSION="$INPUT_VERSION"
+          else
+            VERSION="latest"
+          fi
+
+          BUILD_SHA=$(git rev-parse --short=7 HEAD)
+
+          echo "IMAGE_ID=$IMAGE_ID" >> $GITHUB_ENV
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "BUILD_SHA=$BUILD_SHA" >> $GITHUB_ENV
+
+          echo "Will build image from $BUILD_BRANCH@$BUILD_SHA and push tags: $BUILD_SHA, $VERSION"
+
+      - name: Docker build
+        run: docker build --pull . --file Dockerfile --tag $IMAGE_ID:$BUILD_SHA
+
+      - name: Log into Nexus registry
+        env:
+          NEXUS_PASSWORD: ${{ secrets.NSP_NEXUS_USER_PWD }}
+        run: echo "$NEXUS_PASSWORD" | docker login $REGISTRY -u nsp --password-stdin
+
+      - name: Tag & Push Docker image
+        run: |
+          set -e
+          # also tag moving tag (latest or provided version)
+          docker tag $IMAGE_ID:$BUILD_SHA $IMAGE_ID:$VERSION
+
+          echo "Pushing $IMAGE_ID:$BUILD_SHA and $IMAGE_ID:$VERSION"
+          docker push $IMAGE_ID:$BUILD_SHA
+          docker push $IMAGE_ID:$VERSION
+
+      - name: Result
+        if: always()
+        run: echo "Pushed $IMAGE_ID:$VERSION (from $BUILD_BRANCH@$BUILD_SHA)"
