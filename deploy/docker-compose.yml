@@ -1,0 +1,23 @@
+name: mongolnet-b2b
+
+services:
+  mongolnet-b2b:
+    image: repo.nextsocial.mn/mongolnet_b2b_prod:${IMAGE_TAG:-latest}
+    container_name: mongolnet-b2b
+    restart: unless-stopped
+    ports:
+      # only reachable through nginx on the host
+      - "127.0.0.1:${HOST_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO /dev/null http://127.0.0.1:3000/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
