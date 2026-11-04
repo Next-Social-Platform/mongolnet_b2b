@@ -33,198 +33,54 @@ export default function Clients() {
               >
                 <div className="flex items-center justify-center gap-x-14">
                   <figure
-                    className="ml-14 h-[45px] w-[135px] shrink-0"
+                    className="ml-14 h-[80px] w-[80px] shrink-0"
                     itemProp="itemListElement"
                     itemScope
                     itemType="https://schema.org/Organization"
                     role="img"
-                    aria-label="Scapic company logo"
+                    aria-label="Байгууллагын лого"
                   >
                     <img
-                      src="/images/icons/scapic-metal.svg"
-                      alt="Scapic company logo"
-                      width="135"
-                      height="45"
+                      src="/images/icons/01.webp"
+                      alt="Байгууллагын лого"
+                      width="80"
+                      height="80"
                       loading="lazy"
                       decoding="async"
                       itemProp="logo"
                     />
                   </figure>
                   <figure
-                    className="h-[45px] w-[128px] shrink-0"
+                    className="h-[80px] w-[80px] shrink-0"
                     itemProp="itemListElement"
                     itemScope
                     itemType="https://schema.org/Organization"
                     role="img"
-                    aria-label="Asana company logo"
+                    aria-label="Бид-Ерэн-Найм ТББ лого"
                   >
                     <img
-                      src="/images/icons/asana-metal.svg"
-                      alt="Asana company logo"
-                      width="128"
-                      height="45"
+                      src="/images/icons/02.webp"
+                      alt="Бид-Ерэн-Найм ТББ лого"
+                      width="80"
+                      height="80"
                       loading="lazy"
                       decoding="async"
                       itemProp="logo"
                     />
                   </figure>
                   <figure
-                    className="h-[45px] w-[160px] shrink-0"
+                    className="h-[80px] w-[80px] shrink-0"
                     itemProp="itemListElement"
                     itemScope
                     itemType="https://schema.org/Organization"
                     role="img"
-                    aria-label="Discord company logo"
+                    aria-label="Бид-Ерэн-Найм ТББ лого"
                   >
                     <img
-                      src="/images/icons/discord-metal.svg"
-                      alt="Discord company logo"
-                      width="160"
-                      height="45"
-                      loading="lazy"
-                      decoding="async"
-                      itemProp="logo"
-                    />
-                  </figure>
-                  <figure
-                    className="h-[45px] w-[164px] shrink-0"
-                    itemProp="itemListElement"
-                    itemScope
-                    itemType="https://schema.org/Organization"
-                    role="img"
-                    aria-label="Dropbox company logo"
-                  >
-                    <img
-                      src="/images/icons/dropbox-metal.svg"
-                      alt="Dropbox company logo"
-                      width="164"
-                      height="45"
-                      loading="lazy"
-                      decoding="async"
-                      itemProp="logo"
-                    />
-                  </figure>
-                  <figure
-                    className="h-[45px] w-[124px] shrink-0"
-                    itemProp="itemListElement"
-                    itemScope
-                    itemType="https://schema.org/Organization"
-                    role="img"
-                    aria-label="Hotjar company logo"
-                  >
-                    <img
-                      src="/images/icons/hotjar-metal.svg"
-                      alt="Hotjar company logo"
-                      width="124"
-                      height="45"
-                      loading="lazy"
-                      decoding="async"
-                      itemProp="logo"
-                    />
-                  </figure>
-                  <figure
-                    className="h-[45px] w-[148px] shrink-0"
-                    itemProp="itemListElement"
-                    itemScope
-                    itemType="https://schema.org/Organization"
-                    role="img"
-                    aria-label="Lattice company logo"
-                  >
-                    <img
-                      src="/images/icons/lattice-metal.svg"
-                      alt="Lattice company logo"
-                      width="148"
-                      height="45"
-                      loading="lazy"
-                      decoding="async"
-                      itemProp="logo"
-                    />
-                  </figure>
-                  <figure
-                    className="h-[45px] w-[128px] shrink-0"
-                    itemProp="itemListElement"
-                    itemScope
-                    itemType="https://schema.org/Organization"
-                    role="img"
-                    aria-label="Notion company logo"
-                  >
-                    <img
-                      src="/images/icons/notion-metal.svg"
-                      alt="Notion company logo"
-                      width="128"
-                      height="45"
-                      loading="lazy"
-                      decoding="async"
-                      itemProp="logo"
-                    />
-                  </figure>
-                  <figure
-                    className="h-[45px] w-[168px] shrink-0"
-                    itemProp="itemListElement"
-                    itemScope
-                    itemType="https://schema.org/Organization"
-                    role="img"
-                    aria-label="Outreach company logo"
-                  >
-                    <img
-                      src="/images/icons/outreach-metal.svg"
-                      alt="Outreach company logo"
-                      width="168"
-                      height="45"
-                      loading="lazy"
-                      decoding="async"
-                      itemProp="logo"
-                    />
-                  </figure>
-                  <figure
-                    className="h-[45px] w-[136px] shrink-0"
-                    itemProp="itemListElement"
-                    itemScope
-                    itemType="https://schema.org/Organization"
-                    role="img"
-                    aria-label="Spotify company logo"
-                  >
-                    <img
-                      src="/images/icons/spotify-metal.svg"
-                      alt="Spotify company logo"
-                      width="136"
-                      height="45"
-                      loading="lazy"
-                      decoding="async"
-                      itemProp="logo"
-                    />
-                  </figure>
-                  <figure
-                    className="h-[45px] w-[250px] shrink-0"
-                    itemProp="itemListElement"
-                    itemScope
-                    itemType="https://schema.org/Organization"
-                    role="img"
-                    aria-label="Squarespace company logo"
-                  >
-                    <img
-                      src="/images/icons/squarespace-metal.svg"
-                      alt="Squarespace company logo"
-                      width="250"
-                      height="45"
-                      loading="lazy"
-                      decoding="async"
-                      itemProp="logo"
-                    />
-                  </figure>
-                  <figure
-                    className="h-[45px] w-[123px] shrink-0"
-                    itemProp="itemListElement"
-                    itemScope
-                    itemType="https://schema.org/Organization"
-                    role="img"
-                    aria-label="Stripe company logo"
-                  >
-                    <img
-                      src="/images/icons/stripe-metal.svg"
-                      alt="Stripe company logo"
-                      width="123"
-                      height="45"
+                      src="/images/icons/03.webp"
+                      alt="Бид-Ерэн-Найм ТББ лого"
+                      width="80"
+                      height="80"
                       loading="lazy"
                       decoding="async"
                       itemProp="logo"

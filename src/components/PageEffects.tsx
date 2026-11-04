@@ -31,6 +31,9 @@ const MARQUEES: MarqueeOptions[] = [
     smoothEdges: true,
     direction: "left",
     duplicateCount: 1,
+    // 3 logo 500px-ээс дээш өргөнд хөдөлгөөнгүй харагдаж, нарийн дэлгэцэд л гүйнэ.
+    breakpointSize: 499,
+    destroyOnDesktop: true,
     mobileSettings: { direction: "top", speed: 5e4 },
   },
   {
@@ -48,7 +51,8 @@ function initMarquees() {
     const el = document.querySelector<HTMLElement>(options.element as string);
     if (!el || el.dataset.marqueeReady) return;
     el.dataset.marqueeReady = "true";
-    new InfiniteMarquee(options);
+    // Селекторын оронд элементийг шууд өгнө: сан destroy хийхдээ массивыг дэмждэггүй.
+    new InfiniteMarquee({ ...options, element: el });
   });
 }
 

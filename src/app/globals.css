@@ -13302,3 +13302,15 @@ svg.leaflet-zoom-animated {
   height: 21px;
   overflow: hidden;
 }
+
+/* Logo marquee 500px-ээс дээш өргөнд destroy хийгдэхэд сангийн үлдээсэн flex/mask класс logo-г зүүн тийш шахаж, эхнийхийг бүдгэрүүлдэг. Гүйхгүй үед энгийн төвлөрсөн мөр болгоно. */
+.logos-marquee-container.horizontal-marquee:not(:has(> .horizontal-marquee-inner)) {
+  display: block;
+  -webkit-mask: none;
+  mask: none;
+}
+
+/* Эхний logo-ийн зүүн зай (ml-14) нь зөвхөн гүйх үед хэрэгтэй. Төвлөрсөн мөрөнд хасна. */
+.logos-marquee-container.horizontal-marquee:not(:has(> .horizontal-marquee-inner)) figure:first-child {
+  margin-left: 0;
+}
