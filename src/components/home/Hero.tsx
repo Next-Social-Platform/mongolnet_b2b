@@ -62,11 +62,6 @@ export default function Hero() {
               </ul>
             </div>
           </div>
-          <figure data-ns-animate="" data-delay="0.6" data-offset="100" className="max-w-[1290px] w-full">
-            <img src="/assets/img/d090638a7c5d.png" alt="hero-image" className="dark:hidden size-full object-cover scale-[150%] md:scale-100" />
-            {" "}
-            <img src="/assets/img/a103a629559c.png" alt="hero-image" className="hidden dark:block size-full object-cover scale-[150%] md:scale-100" />
-          </figure>
         </div>
       </section>
     </div>

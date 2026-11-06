@@ -38,6 +38,7 @@ npm run dev
 | Команд | Юу хийх вэ |
 | --- | --- |
 | `npm run dev` | Хөгжүүлэлтийн server (hot reload) |
+| `npm run dev:clean` | `.next` (cache)-ийг устгаад dev server асаана. Dev server-ийн алдаа гацсан үед |
 | `npm run build` | Production build. Төрлийн шалгалт хийж, хуудсуудыг урьдчилан үүсгэнэ |
 | `npm run start` | Build хийсэн хувилбарыг асаана (эхлээд `build`) |
 | `npm run lint` | ESLint шалгалт |
@@ -140,9 +141,8 @@ cd deploy
 
 **Dev server-д `Cannot find module '@tailwindcss/postcss'` гарвал.** Багц суухаас өмнө dev server ажиллаж байсан бол Turbopack-ийн байнгын cache алдааг хадгалчихдаг. Server-ээ `Ctrl+C`-ээр зогсоогоод cache-ийг устгаж дахин асаана:
 
-```powershell
-Remove-Item -Recurse -Force .next\dev, .next\cache
-npm run dev
+```bash
+npm run dev:clean
 ```
 
 **Нэг төсөл дээр хоёр dev server асаах.** Next нь `.next/dev/lock`-оор нэг л server зөвшөөрдөг. Нэмэлт server-ийг тусдаа хавтсаар асаана:
