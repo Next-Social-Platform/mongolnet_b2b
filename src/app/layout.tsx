@@ -1,31 +1,25 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import Scripts from '@/components/Scripts';
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin", "cyrillic", "cyrillic-ext"],
-  display: "swap",
-});
+// Order matters: Tailwind + the template's CSS first, then Inter, the site's own tweaks and the brand colour last.
+import './globals.css';
+import './fonts/fonts.css';
+import './site.css';
+import './theme.css';
 
 export const metadata: Metadata = {
-  title: "Mongol.net",
-  description:
-    "Mongol.net нь холбоо, нийгэмлэг, төрийн бус болон гишүүнчлэлтэй байгууллагуудын үйл ажиллагааг нэг системд удирдахад зориулагдсан.",
-  icons: {
-    icon: "/images/shared/favicon.svg",
-    shortcut: "/images/shared/favicon.svg",
-  },
+  title: { default: 'Mongol.net – Гишүүнчлэлийн нэгдсэн платформ', template: '%s | Mongol.net' },
+  icons: { icon: '/img/favicon.svg' },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="mn"
-      data-force-theme="light"
-      className={`light ${inter.variable}`}
-    >
-      <body className="bg-white">{children}</body>
+    <html lang="mn" className="light" data-force-theme="light">
+      <body id="top" className="bg-white" data-theme="app-builder">
+        {children}
+        <Scripts />
+      </body>
     </html>
   );
 }

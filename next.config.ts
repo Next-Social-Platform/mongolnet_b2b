@@ -1,18 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   output: "standalone",
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
+  reactStrictMode: true,
+  // Хоёр дахь dev server-ийг өөр порт дээр асаахад: NEXT_DIST_DIR=.next-dev2
+  distDir: process.env.NEXT_DIST_DIR || ".next",
 };
 
 export default nextConfig;

@@ -1,5 +1,6 @@
 node_modules
 .next
+.next-*
 out
 build
 coverage
@@ -15,3 +16,4 @@ Dockerfile
 .dockerignore
 README.md
 AGENTS.md
+design

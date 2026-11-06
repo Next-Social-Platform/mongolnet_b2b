@@ -2,7 +2,7 @@
 
 Холбоо, нийгэмлэг, төрийн бус болон гишүүнчлэлтэй байгууллагын үйл ажиллагааг нэг системд удирдах **Mongol.net** платформын танилцуулга (landing) хуудас.
 
-Next.js (App Router), React, TypeScript, Tailwind CSS дээр бүтээгдсэн. Хөдөлгөөн нь GSAP, Lenis (зөөлөн гүйлгэлт), `vanilla-infinite-marquee` сангаар хийгдсэн.
+Next.js (App Router), React, TypeScript, Tailwind CSS дээр бүтээгдсэн.
 
 ## Шаардлага
 
@@ -46,35 +46,37 @@ npm run start        # http://localhost:3000
 
 ## Төслийн бүтэц
 
+Хоёр хуудастай сайт: `/` (нүүр) болон `/contact` (холбоо барих). Дизайн нь `design/` хавтсаар ирсэн Tailwind/GSAP загвар дээр суурилсан.
+
 ```
 src/
   app/
-    layout.tsx        Үндсэн layout, Inter фонт, meta мэдээлэл
-    page.tsx          Хуудасны section-уудыг дарааллаар нь угсарсан газар
-    globals.css       Бүх стиль (доорх тайлбарыг үз)
+    layout.tsx        html, meta, CSS-ийн дараалал (globals → fonts → site → theme), <Scripts/>
+    page.tsx          Нүүр: Header, Hero, Features, HowItWorks, Pricing, Audience, Faq, Footer
+    contact/page.tsx  Холбоо барих хуудас
+    globals.css       Tailwind v4: @theme токен, загварын суурь CSS (том, гараар засахгүй)
+    site.css          Энэ сайтын өөрийн засварууд (header, цэс, footer, форм ...). ЭНД ЗАСНА
+    theme.css         Брэндийн өнгө: ногоон #4ce233, хар хөх #170f2a. ӨНГӨ ЭНД ЗАСНА
+    fonts/            Inter (local)
   components/
-    Header.tsx        Цэс, дээд мэдэгдлийн bar, mobile цэс (client)
-    PageEffects.tsx   Бүх animation: reveal, marquee, typewriter, Lenis (client)
-    sections/         Нүүр хуудасны хэсгүүд: Hero, Clients, Creators, Steps,
-                      Pricing, Results, Integration, Footer
-  lib/scroll.ts       Anchor руу / дээд рүү зөөлөн гүйлгэх туслах функц
-  types/              Төрлийн тодорхойлолт (springer, vanilla-infinite-marquee)
+    Header.tsx, Footer.tsx, Contact.tsx, ContactForm.tsx
+    Scripts.tsx       GSAP, Lenis, Swiper зэрэг animation script-ийг public/-аас ачаална
+    home/             Нүүр хуудасны section-ууд
 public/
-  images/             Зургууд (WebP/PNG/SVG)
-  img/bolomjuud/      "Боломжууд" хэсгийн зургууд
-  fonts/              Icon фонт (next-sass)
+  assets/             Зураг, icon фонт, vendor JS (assets/runtimes/modern)
+  img/, reveal.js, site-nav.js
+design/               Дизайны эх файлууд (git-д орохгүй, .gitignore-д байна)
 ```
 
-Хуудасны дараалал `src/app/page.tsx` дотор байна. Section нэмэх, хасах, байрыг нь солихдоо тэр файлыг засна.
+Дэлгэрэнгүй заавар, засахдаа дагах дүрмийг `design/nextjs-handoff/AI-HANDOFF.md` дотроос уншина.
 
 ## Анхаарах зүйлс
 
-- **Next.js-ийн хувилбар шинэ (16.x).** API болон файлын бүтэц таны мэддэг хувилбараас өөр байж болно. Код бичихээсээ өмнө `node_modules/next/dist/docs/` дахь холбогдох гарын авлагыг уншина (дэлгэрэнгүйг `AGENTS.md`-ээс үз).
-- **`cacheComponents` идэвхтэй.** Server component дотор `new Date()` зэрэг хугацаанаас хамаарсан кодыг шууд бичвэл `npm run build` унана.
-- **`globals.css` нь урьдчилан compile хийсэн Tailwind.** `@import "tailwindcss"` ашигладаггүй, шууд CSS файл байдлаар ачаалагдана. Тиймээс HTML-д шинэ Tailwind класс (жишээ нь `h-[88px]`) нэмэхэд CSS-д байхгүй бол ажиллахгүй. Шинэ утгыг inline `style` эсвэл `globals.css` дотор шууд CSS-ээр нэм.
-- **Animation өгөгдлөөр удирдагддаг.** Элемент дээр `data-ns-animate` өгвөл scroll хийхэд гарч ирэх reveal animation идэвхжинэ. Нэмэлт утгууд: `data-delay`, `data-duration`, `data-offset`, `data-direction`, `data-instant` гэх мэт. Бүх логик `PageEffects.tsx` дотор.
-- **Marquee (гүйдэг мөр).** Дээд мэдэгдэл, "Байгууллагын хамтын ажиллагааг нэг түвшинд" хэсгийн logo (500px-ээс нарийн дэлгэцэд л гүйнэ), картуудын мөр байдаг. Тохиргоо нь `PageEffects.tsx` дахь `MARQUEES` жагсаалтад.
-- **Зураг.** Том зургийг WebP болгож, `public/images/` дотор хадгална. Ашиглагдахгүй зургийг устгаж байх нь хуудасны жинг бага байлгана.
+- **Next.js-ийн хувилбар шинэ (16.x).** API болон файлын бүтэц таны мэддэг хувилбараас өөр байж болно. Код бичихээсээ өмнө `node_modules/next/dist/docs/` дахь гарын авлагыг уншина (`AGENTS.md`-ээс үз).
+- **Animation нь энгийн JavaScript.** Загварын animation, цэс, accordion нь React биш, `public/` доторх JS-ээр ажилладаг. `data-ns-animate`, `lenis-scroll-to`, `accordion-*`, `step-card` зэрэг класс, data атрибутыг нэр солихгүй, устгахгүй.
+- **Хуудас хоорондын холбоос** нь `next/link` биш энгийн `<a href>` (script-үүд хуудас бүр дээр шинээр эхэлдэг).
+- **Tailwind CSS v4** (`@tailwindcss/postcss`). `site.css`, `theme.css` нь `globals.css`-ээс хойно ачаалагддаг тул Tailwind-ийн класс дээр давамгайлна.
+- **Холбоо барих форм** нь одоогоор `mailto:` нээдэг (server-гүй). Жинхэнэ илгээлт хэрэгтэй бол `ContactForm.tsx`-ийн `handleSubmit`-ийг API route руу солино.
 
 ## Deploy
 
