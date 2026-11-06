@@ -137,6 +137,16 @@ cd deploy
 
 `deploy.sh` нь шинэ image-ийг татаад, health check (120 секунд хүртэл) өнгөрөхгүй бол өмнөх image руу автоматаар буцаана. Хоёр deploy зэрэг ажиллахаас lock-оор сэргийлнэ. `docker-compose.yml` нь апп-ыг зөвхөн `127.0.0.1:3000` дээр ажиллуулж, нийтэд нь nginx (`deploy/nginx/business.mongol.net.conf`) нээнэ. HTTPS: `sudo certbot --nginx -d business.mongol.net`.
 
+**Холбоо барих форм.** Форм нь Server Action-оор (`src/app/contact/actions.ts`) SMTP-ээр `contact@nextsocial.mn` руу и-мэйл илгээнэ. `.env.example`-ийг server дээр `deploy/.env`, локалд `.env.local` болгон хуулж бөглөнө:
+
+```bash
+SMTP_USER=...    # Mailjet → Account settings → API Key Management: API Key
+SMTP_PASS=...    # мөн тэндээс Secret Key
+# заавал биш: SMTP_HOST (in-v3.mailjet.com), SMTP_PORT (587), SMTP_FROM (noreply@nextsocial.mn), CONTACT_TO (contact@nextsocial.mn)
+```
+
+`nextsocial.mn` домэйн Mailjet-д SPF, DKIM-ээр тохируулагдсан. Илгээгч хаяг (эсвэл домэйн) Mailjet → Senders & Domains-д бүртгэлтэй байх ёстой. Үнэгүй багц өдөрт 200 и-мэйл.
+
 ## Түгээмэл асуудал
 
 **Dev server-д `Cannot find module '@tailwindcss/postcss'` гарвал.** Багц суухаас өмнө dev server ажиллаж байсан бол Turbopack-ийн байнгын cache алдааг хадгалчихдаг. Server-ээ `Ctrl+C`-ээр зогсоогоод cache-ийг устгаж дахин асаана:
@@ -156,7 +166,6 @@ npm run dev -- -p 3001
 
 ## Хийх ажлууд
 
-- Холбоо барих форм нь зөвхөн `mailto:` нээдэг. Жинхэнэ илгээлт хэрэгтэй бол `ContactForm.tsx`-ийн `handleSubmit`-ийг `app/api/contact/route.ts` болон и-мэйл үйлчилгээ рүү солино.
 - Footer-ийн сошиал холбоос `href="#"` (Facebook, Instagram, YouTube, LinkedIn-ийн жинхэнэ хаяг оруулна).
 - Үнийн санал хэсэгт үнэ байхгүй. Хэрэгтэй бол нэмнэ.
 - Hero-ийн dashboard зураг болон зарим icon нь англи хэлтэй загварын зураг хэвээр.

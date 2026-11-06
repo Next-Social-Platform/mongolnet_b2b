@@ -10,6 +10,13 @@ services:
       - "127.0.0.1:${HOST_PORT:-3000}:3000"
     environment:
       NODE_ENV: production
+      # contact form mail, set in deploy/.env (see README)
+      SMTP_HOST: ${SMTP_HOST:-in-v3.mailjet.com}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:-noreply@nextsocial.mn}
+      CONTACT_TO: ${CONTACT_TO:-contact@nextsocial.mn}
     healthcheck:
       test: ["CMD-SHELL", "wget -qO /dev/null http://127.0.0.1:3000/ || exit 1"]
       interval: 30s

@@ -112,10 +112,6 @@ export default function Contact() {
                     {" "}
                     <textarea id="message" name="message" rows={7} placeholder="Захидлаа бичнэ үү" required className="dark:bg-background-6 dark:border-stroke-7 border-stroke-3 bg-background-1 text-tagline-2 placeholder:text-secondary/60 focus:border-secondary dark:focus-visible:border-stroke-4/20 placeholder:text-tagline-2 dark:placeholder:text-accent/60 dark:text-accent w-full rounded-xl border px-[18px] py-3 font-normal placeholder:font-normal focus:outline-none" />
                   </div>
-                  {" "}
-                  <button type="submit" className="btn btn-md btn-secondary hover:btn-primary dark:btn-accent w-full first-letter:uppercase before:content-none">
-                    Бидэнд илгээх
-                  </button>
                 </ContactForm>
               </div>
             </div>
