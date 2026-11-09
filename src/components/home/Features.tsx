@@ -1,9 +1,9 @@
 export default function Features() {
   return (
     <div data-theme="app-builder" style={{ display: "contents" }}>
-      <section id="features" className="bg-background-2 dark:bg-background-5">
+      <section id="features" className="py-[80px] md:py-[120px] lg:py-[156px]">
         <div className="main-container">
-          <div className="flex lg:flex-row flex-col items-start lg:gap-[100px] md:gap-y-20 gap-y-10 pt-14 md:pt-16 lg:pt-[88px] xl:pt-[150px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[150px]">
+          <div className="flex lg:flex-row flex-col items-start lg:gap-[100px] md:gap-y-20 gap-y-10">
             <div className="w-full lg:flex-1 lg:sticky lg:top-28 lg:max-w-full max-w-[520px] lg:mx-0 mx-auto text-center lg:text-left">
               <span data-ns-animate="" data-delay="0.2" className="badge badge-green mb-5">
                 Боломжууд

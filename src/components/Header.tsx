@@ -8,7 +8,8 @@ export default function Header({ isHome = false }: { isHome?: boolean }) {
               Home
             </span>
             <figure className="hidden lg:block lg:max-w-[198px]">
-              <img src="/img/logo.svg" alt="Nexsas" className="h-8 w-auto" />
+              <img src="/img/logo.svg" alt="Business.mongol.net" className="logo-light h-8 w-auto" />
+              <img src="/img/logo-dark.svg" alt="Business.mongol.net" className="logo-dark h-8 w-auto" />
             </figure>
             <figure className="block max-w-[44px] lg:hidden">
               <img src="/img/favicon.svg" alt="Nexsas" className="block w-full" />
@@ -25,16 +26,16 @@ export default function Header({ isHome = false }: { isHome?: boolean }) {
               </a>
             </li>
             <li className="nav-item relative cursor-pointer py-2.5">
-              <a href={isHome ? "#how-it-works" : "/#how-it-works"} className={(isHome ? "lenis-scroll-to " : "") + "hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-4 py-2 font-normal transition-all duration-200"}>
+              <a href={isHome ? "#pricing" : "/#pricing"} className={(isHome ? "lenis-scroll-to " : "") + "hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-4 py-2 font-normal transition-all duration-200"}>
                 <span>
-                  Хэрхэн ажилладаг вэ?
+                  Үнийн санал
                 </span>
               </a>
             </li>
             <li className="nav-item relative cursor-pointer py-2.5">
-              <a href={isHome ? "#pricing" : "/#pricing"} className={(isHome ? "lenis-scroll-to " : "") + "hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-4 py-2 font-normal transition-all duration-200"}>
+              <a href={isHome ? "#projects" : "/#projects"} className={(isHome ? "lenis-scroll-to " : "") + "hover:border-stroke-2 dark:hover:border-stroke-7 text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent flex items-center gap-1 rounded-full border border-transparent px-4 py-2 font-normal transition-all duration-200"}>
                 <span>
-                  Үнийн санал
+                  Төсөл
                 </span>
               </a>
             </li>
@@ -54,14 +55,22 @@ export default function Header({ isHome = false }: { isHome?: boolean }) {
             </li>
           </ul>
         </nav>
-        <div className="hidden items-center justify-center xl:flex">
+        <div className="hidden items-center justify-center gap-2 xl:flex">
+          <button type="button" data-theme-toggle="" aria-label="Өдөр / шөнийн горим солих" title="Өдөр / шөнийн горим" className="theme-toggle">
+  <svg className="theme-toggle__moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+  <svg className="theme-toggle__sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" /></svg>
+</button>
           <a href="/contact" className="btn btn-md hover:btn-white dark:hover:btn-white-dark btn-white-dark dark:btn-white">
             <span>
               Холбоо барих
             </span>
           </a>
         </div>
-        <div className="block xl:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
+          <button type="button" data-theme-toggle="" aria-label="Өдөр / шөнийн горим солих" title="Өдөр / шөнийн горим" className="theme-toggle">
+  <svg className="theme-toggle__moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+  <svg className="theme-toggle__sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" /></svg>
+</button>
           <button className="nav-hamburger bg-background-4 dark:bg-background-6 flex size-12 cursor-pointer flex-col items-center justify-center gap-[5px] rounded-full">
             <span className="sr-only">
               Menu
@@ -105,13 +114,13 @@ export default function Header({ isHome = false }: { isHome?: boolean }) {
                   </a>
                 </li>
                 <li>
-                  <a href={isHome ? "#how-it-works" : "/#how-it-works"} className={(isHome ? "lenis-scroll-to " : "") + "text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent block py-2.5 font-normal transition-all duration-200"}>
-                    Хэрхэн ажилладаг вэ?
+                  <a href={isHome ? "#pricing" : "/#pricing"} className={(isHome ? "lenis-scroll-to " : "") + "text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent block py-2.5 font-normal transition-all duration-200"}>
+                    Үнийн санал
                   </a>
                 </li>
                 <li>
-                  <a href={isHome ? "#pricing" : "/#pricing"} className={(isHome ? "lenis-scroll-to " : "") + "text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent block py-2.5 font-normal transition-all duration-200"}>
-                    Үнийн санал
+                  <a href={isHome ? "#projects" : "/#projects"} className={(isHome ? "lenis-scroll-to " : "") + "text-tagline-1 text-secondary/60 hover:text-secondary dark:text-accent/60 dark:hover:text-accent block py-2.5 font-normal transition-all duration-200"}>
+                    Төсөл
                   </a>
                 </li>
                 <li>

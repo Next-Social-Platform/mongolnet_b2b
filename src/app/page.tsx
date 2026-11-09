@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Hero, Features, HowItWorks, Pricing, Audience, Faq } from '@/components/home';
+import { Hero, Features, Pricing, Projects, Audience, Faq } from '@/components/home';
 import { OG_BASE, SITE, TWITTER_BASE } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -56,8 +56,8 @@ export default function HomePage() {
       <main>
         <Hero />
         <Features />
-        <HowItWorks />
         <Pricing />
+        <Projects />
         <Audience />
         <Faq />
       </main>

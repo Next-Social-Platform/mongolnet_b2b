@@ -1,7 +1,7 @@
 export default function Faq() {
   return (
     <div data-theme="crypto-marketing" style={{ display: "contents" }}>
-      <section id="faq" className="pb-14 pt-14 md:pb-16 md:pt-16 lg:pb-[88px] lg:pt-[88px] xl:pb-[100px] xl:pt-[100px]">
+      <section id="faq" className="py-[80px] md:py-[120px] lg:py-[156px]">
         <div className="main-container">
           <div className="text-center space-y-3 mb-14 md:mb-[70px]">
             <span data-ns-animate="" data-delay="0.1" className="badge badge-green mb-3.5 md:mb-5">

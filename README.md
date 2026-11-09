@@ -54,7 +54,6 @@ Commit хийхийн өмнө `npm run build` алдаагүй өнгөрч б�
 | --- | --- | --- |
 | Hero | — | Гарчиг, 3 давуу тал, dashboard-ийн зураг |
 | Боломжууд | `#features` | Давхарлан гарч ирдэг (sticky stack) 9 карт |
-| Хэрхэн ажилладаг вэ? | `#how-it-works` | Босоо timeline, 4 алхам |
 | Үнийн санал | `#pricing` | Standard / Pro / Enterprise багц (үнэгүй), товч нь `/contact` руу |
 | Хэнд зориулсан бэ? | `#audience` | Sticky гарчиг, 6 карт |
 | Асуулт хариулт | `#faq` | 10 асуулттай accordion |
@@ -62,7 +61,7 @@ Commit хийхийн өмнө `npm run build` алдаагүй өнгөрч б�
 
 **Холбоо барих (`/contact`)** байршил, и-мэйлийн карт болон хүсэлтийн форм.
 
-Цэс: Боломжууд · Хэрхэн ажилладаг вэ? · Үнийн санал · Хэнд зориулсан бэ? · Асуулт хариулт · [Холбоо барих]. 1280px-ээс нарийн дэлгэц дээр цэс нь hamburger-ээр нээгддэг dropdown болно.
+Цэс: Боломжууд · Үнийн санал · Хэнд зориулсан бэ? · Асуулт хариулт · [Холбоо барих]. 1280px-ээс нарийн дэлгэц дээр цэс нь hamburger-ээр нээгддэг dropdown болно.
 
 ## Төслийн бүтэц
 
@@ -82,7 +81,7 @@ src/
     Contact.tsx         Холбоо барих карт, форм
     ContactForm.tsx     Client component, илгээхэд mailto: нээнэ
     Scripts.tsx         GSAP, Lenis, Swiper зэрэг script-ийг public/-аас ачаална
-    home/               Hero, Features, HowItWorks, Pricing, Audience, Faq
+    home/               Hero, Features, Pricing, Audience, Faq
 public/
   assets/               Зураг, icon фонт (next-sass), vendor JS (assets/runtimes/modern)
   img/                  logo.svg, favicon.svg

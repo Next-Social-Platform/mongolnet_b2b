@@ -1,10 +1,10 @@
 export default function Pricing() {
   return (
     <div data-theme="online-banking" style={{ display: "contents" }}>
-      <section id="pricing" className="xl:py-[100px] md:py-20 py-10">
+      <section id="pricing" className="py-[80px] md:py-[120px] lg:py-[156px]">
         <div className="main-container">
           <div className="text-center space-y-3 max-w-[620px] mx-auto">
-            <span data-ns-animate="" data-delay="0.1" className="badge badge-cyan">
+            <span data-ns-animate="" data-delay="0.1" className="badge badge-green">
               ҮНИЙН САНАЛ
             </span>
             <h2 data-ns-animate="" data-delay="0.2">
@@ -196,7 +196,7 @@ export default function Pricing() {
               </div>
             </div>
             <div data-ns-animate="" data-delay="0.5" className="col-span-12 lg:col-span-4">
-              <div className="max-w-[604px] w-full lg:mx-0 mx-auto relative py-[60px] px-14 bg-background-2 rounded-[20px] overflow-hidden">
+              <div className="max-w-[604px] w-full lg:mx-0 mx-auto pricing-pro relative py-[60px] px-14 bg-background-2 rounded-[20px] overflow-hidden">
                 <div className="pointer-events-none select-none absolute h-[598px] top-0 right-0 -translate-y-[27%] max-[425]:translate-y-[30%] md:-translate-y-[47%] lg:-translate-y-[25%] xl:-translate-y-[33%] rotate-[2deg] xl:translate-x-[44%] translate-x-[41%]">
                   <img src="/assets/img/0e896ba0f72b.png" alt="pricing bg" />
                 </div>
@@ -342,7 +342,7 @@ export default function Pricing() {
             <div data-ns-animate="" data-delay="0.6" className="col-span-12 lg:col-span-4">
               <div className="max-w-[604px] w-full lg:mx-0 mx-auto py-[60px] px-14 bg-background-2 dark:bg-background-6 rounded-[20px]">
                 <div className="space-y-2">
-                  <h3 className="text-secondary inline-block">
+                  <h3 className="text-secondary dark:text-accent inline-block">
                     Enterprise
                   </h3>
                   <p>
