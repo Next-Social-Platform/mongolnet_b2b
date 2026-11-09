@@ -149,12 +149,11 @@ cd deploy
 **Холбоо барих форм.** Форм нь Server Action-оор (`src/app/contact/actions.ts`) SMTP-ээр `contact@nextsocial.mn` руу и-мэйл илгээнэ. `.env.example`-ийг server дээр `deploy/.env`, локалд `.env.local` болгон хуулж бөглөнө:
 
 ```bash
-SMTP_USER=...    # Mailjet → Account settings → API Key Management: API Key
-SMTP_PASS=...    # мөн тэндээс Secret Key
-# заавал биш: SMTP_HOST (in-v3.mailjet.com), SMTP_PORT (587), SMTP_FROM (noreply@nextsocial.mn), CONTACT_TO (contact@nextsocial.mn)
+MAIL_NO_REPLY_PASSWORD=...    # noreply@nextsocial.mn хаягийн нууц үг
+# заавал биш: MAIL_HOST (smtp.office365.com), MAIL_PORT (587), MAIL_NO_REPLY_USER, MAIL_NO_REPLY_FROM (noreply@nextsocial.mn), CONTACT_TO (contact@nextsocial.mn)
 ```
 
-`nextsocial.mn` домэйн Mailjet-д SPF, DKIM-ээр тохируулагдсан. Илгээгч хаяг (эсвэл домэйн) Mailjet → Senders & Domains-д бүртгэлтэй байх ёстой. Үнэгүй багц өдөрт 200 и-мэйл.
+Microsoft 365 дээр `noreply@nextsocial.mn` хаягт **Authenticated SMTP** (Admin center → Users → Mail → Manage email apps) идэвхтэй байх ёстой.
 
 ## Түгээмэл асуудал
 
