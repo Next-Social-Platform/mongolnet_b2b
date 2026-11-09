@@ -64,7 +64,7 @@ export default function Footer() {
             </svg>
           </a>
           <p className="site-footer__copy">
-            © Mongol.net – Гишүүнчлэлийн нэгдсэн платформ
+            © Business.mongol.net – Гишүүнчлэлийн нэгдсэн платформ
           </p>
         </div>
       </div>

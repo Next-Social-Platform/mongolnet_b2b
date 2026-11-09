@@ -99,6 +99,8 @@ deploy/                 docker-compose.yml, deploy.sh, nginx тохиргоо
 | Брэндийн өнгө | `src/app/theme.css` (токен болон хуучин өнгийн hex хуулбар хоёуланг) |
 | Header, цэс, footer, форм-ийн загвар | `src/app/site.css` |
 | Зураг солих | `public/assets/img/` дотор файл солиод JSX дэх замыг шинэчилнэ. Зам нь `/assets/...` гэж эхэлнэ |
+| SEO: гарчиг, тайлбар, түлхүүр үг, домэйн, утас, и-мэйл | `src/lib/site.ts` (meta, robots, sitemap, JSON-LD бүгд эндээс авна) |
+| Линк хуваалцах зураг (Facebook, X, Messenger гэх мэт) | `public/img/cover.jpg` (1200×628, ~76KB). Зургийг солибол `src/lib/site.ts` дахь `COVER`-ийн хэмжээг шинэчилнэ |
 | Footer-ийн сошиал холбоос | `src/components/Footer.tsx` (одоо `href="#"`) |
 | Шинэ Tailwind класс | `src/app` болон `src/components` дотор шууд ашиглана (v4 автоматаар олно) |
 
@@ -114,6 +116,14 @@ deploy/                 docker-compose.yml, deploy.sh, nginx тохиргоо
 4. **`site.css` дахь `.step-card`, `.step-cards` (min-height, gap)** нь "Хэнд зориулсан бэ?" section-ий алхмын дугаар гэрэлтэхэд хамаатай. Өөрчилбөл тэр нь эвдэрнэ.
 5. **Header-ийн цэсний дүрэм `header nav a[href]`** хэлбэртэй (`[href]` нь specificity нэмдэг). Үүнийг хадгална.
 6. Бүх харагдах текст монгол хэлтэй байна.
+
+## SEO, meta tag
+
+- Нийтлэг meta (title загвар, description, keywords, Open Graph, Twitter, robots, theme-color) `src/app/layout.tsx`-д, утга нь `src/lib/site.ts`-д байна.
+- Хуудас бүр өөрийн `title`, `description`, `canonical`-тэй (`src/app/page.tsx`, `src/app/contact/page.tsx`). Хуудас дээр `openGraph` / `twitter`-ийг дахин зарлахад layout-ийнх бүхэлдээ дарагддаг тул `OG_BASE`, `TWITTER_BASE`-ийг дэлгэж (`...OG_BASE`) ашиглана.
+- `/robots.txt`, `/sitemap.xml` автоматаар үүснэ (`robots.ts`, `sitemap.ts`). Шинэ хуудас нэмбэл `sitemap.ts`-д нэмнэ.
+- Нүүр хуудсанд Organization, WebSite JSON-LD байна.
+- Домэйн нь анхдагчаар `https://business.mongol.net`. Өөр хаяг дээр туршихдаа `NEXT_PUBLIC_SITE_URL` орчны хувьсагчаар дарна.
 
 ## Docker, deploy
 

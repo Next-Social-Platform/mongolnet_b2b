@@ -28,7 +28,7 @@ export default function Contact() {
                       Байршил
                     </p>
                     <p className="text-accent">
-                      Манлай Баатар Дамдинсүрзнгийн Гудамж, СБД - 8 хороо, UB tower plus office 1305 тоот
+                      Улаанбаатар хот, Баянзүрх дүүрэг 43-р хороо UB tower Plus оффис 1305 тоот
                     </p>
                   </div>
                 </div>
